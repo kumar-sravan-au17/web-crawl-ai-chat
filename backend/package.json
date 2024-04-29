@@ -1,0 +1,32 @@
+{
+  "name": "web-crawl-ai-backend",
+  "version": "1.0.0",
+  "description": "web-crawler-ai-server",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/index.js",
+    "start": "node ./src/index.js"
+  },
+  "keywords": [
+    "ai",
+    "web",
+    "webcrawl",
+    "scraping",
+    "chat",
+    "bot"
+  ],
+  "author": "sravan2618@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "html-to-text": "^9.0.5",
+    "mongoose": "^8.3.2"
+  }
+}

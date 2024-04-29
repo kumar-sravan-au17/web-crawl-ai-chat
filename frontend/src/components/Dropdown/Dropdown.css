@@ -1,0 +1,24 @@
+.dropdown {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  background-color: #03191e;
+  border-radius: 10px 10px 0px 0px;
+  font-size: small;
+}
+
+.dropdown label {
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.dropdown select {
+  background-color: rgb(233, 233, 233);
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+}
+
+.dropdown option {
+  padding: 5rem;
+}
