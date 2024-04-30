@@ -1,9 +1,11 @@
 import React, { createRef, useEffect, useState } from "react";
 import axios from "axios";
 import "./Chat.css";
+import "react-toastify/dist/ReactToastify.min.css";
 import Input from "../Input/Input";
 import AISvg from "../../assets/AI";
 import UserSvg from "../../assets/User";
+import { Slide, ToastContainer, toast } from "react-toastify";
 
 const Chat = ({ selected }) => {
   // Ref for scrolling to the end of messages
@@ -57,19 +59,48 @@ const Chat = ({ selected }) => {
       setLoading(false);
     } catch (error) {
       console.error(error);
+      notify("error", "Something went wrong!");
       setLoading(false);
+    }
+  };
+
+  // To notify of any alerts
+  const notify = (type, message) => {
+    switch (type) {
+      case "error":
+        toast.error(message);
+        break;
+      case "warn":
+        toast.warn(message);
+        break;
+      default:
+        toast.info(message);
+        break;
     }
   };
 
   // Scroll to end of messages when new messages are added
   useEffect(() => {
-    if (messages.length > 7) {
+    if (messages.length > 4) {
       endOfMessages.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
 
   return (
     <div className="chat-container">
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Slide}
+      />
       <div className="messages">
         {/* Display selected website */}
         <p className="help-text">
