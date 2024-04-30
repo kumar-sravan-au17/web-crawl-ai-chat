@@ -33,6 +33,10 @@ const Chat = ({ selected }) => {
   const handleSend = async (e) => {
     e.preventDefault();
     if (inputMessage.trim() === "") return;
+    if (selected === "") {
+      notify("info", "Please select a website first");
+      return;
+    }
 
     // Add user message to state
     const currentMessage = {
@@ -123,7 +127,15 @@ const Chat = ({ selected }) => {
         {/* Show loading indicator */}
         {loading ? (
           <>
-            <div className="loader-dots"></div>
+            <div className="message-item">
+              <div className="icon">
+                <AISvg />
+              </div>
+              <div className="message-body">
+                <h5>AI</h5>
+                <div className="loader-dots"></div>
+              </div>
+            </div>
           </>
         ) : (
           ""
