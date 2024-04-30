@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Slide, ToastContainer, toast } from "react-toastify";
 import "./Layout.css";
 import Dropdown from "../Dropdown/Dropdown";
 import Chat from "../Chat/Chat";
@@ -41,7 +40,7 @@ const Layout = () => {
     <div className="layout">
       <div className="layout-main">
         <Dropdown options={options} handleSelect={handleSelect} />
-        <Chat selected={selected} toast={toast} />
+        <Chat selected={selected} />
       </div>
     </div>
   );
